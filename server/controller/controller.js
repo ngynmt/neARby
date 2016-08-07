@@ -26,7 +26,7 @@ function getPlaces(req, res) {
       }
     })
     // send back data to client side
-    res.send(threeObjs)
+    res.send(threeObjs);
     )
 }
-module.exports = getPlaces
+module.exports = getPlaces;

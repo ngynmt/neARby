@@ -12,37 +12,33 @@ import {
   View, 
   Navigator
 } from 'react-native';
-import { mainView } from './app/containers/mainView';
+import mainView from './app/containers/mainView';
+import { Provider } from 'react-redux';
+import promise from 'redux-promise';
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './app/reducers/root-reducer';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+import App from './app/containers/App'
 
-const ROUTES = {
-  mainView: mainView
+const logger = createLogger();
+// create store
+const storeConfig = function(initialState) {
+  const store = createStore(
+    rootReducer, initialState,
+    compose (
+    applyMiddleware(thunk, promise, logger)
+    )
+  );
+  console.log('STORE CREATED ', store);
+  return store;  
 }
 
-const TITLES = {
-  mainView: 'Main'
-}
-
-class neARby extends Component {
-  constructor(props) {
-    super(props);
-  }
-  renderScene(route, navigator) {
-    let Component = ROUTES[route.name];
-    return (
-      <Component
-      route={route}
-      navigator={navigator} />
-    );
-  }
-  render() {
-    return (
-      <Navigator initialRoute={{ name: 'mainView', index: 0 }}
-        style={ styles.container }
-        renderScene={ this.renderScene.bind(this) }
-        configureScene={ () => {return Navigator.SceneConfigs.FloatFromRight} } />
-    );
-  }
-}
+let neARby = () => (
+  <Provider store={storeConfig()}>
+    <App />
+  </Provider>
+);
 
 const styles = StyleSheet.create({
   container: {

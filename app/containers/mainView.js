@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  WebView,
-  Image
+  WebView
 } from 'react-native';
-
+import index from '../../index.ios.js';
 import Camera from 'react-native-camera';
-
 // this loads the three.js DeviceOrientationControls library
-import DeviceOrientationControls from '../lib/DeviceOrientationControls'
-import RenderScene from '../lib/RenderScene'
+import DeviceOrientationControls from '../lib/DeviceOrientationControls';
+import RenderScene from '../lib/RenderScene';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
 
 const html = 
 `
@@ -64,11 +64,16 @@ const html =
 class mainView extends Component {
   constructor() {
     super();
+    this.store = this.props.store;
   }
 
   componentDidMount() {
-
+    this.props.actions.fetchPlaces();
+    // this.props.actions.fetchEvents();
+    console.log(this.props);
   }
+
+  // on movement, will have to fetch places/events again
 
   render() {
     return (
@@ -99,4 +104,17 @@ const styles = StyleSheet.create({
   }
 });
 
-export { mainView };
+function stateToProps(state) {
+console.log(state);
+  return {
+    places: state.places
+  };
+}
+
+function dispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+}
+
+export default connect(stateToProps, dispatchToProps)(mainView);

@@ -23,13 +23,11 @@ export const fetchPlaces = function(position) {
     console.error(error);
   });
 
-  console.log(collection, 'collection');
   return {
     type: PLACES_COLLECTION,
     payload: collection
   };
 };
-
 export const setUser = function(name, picture) {
   let user = {
     name: name,

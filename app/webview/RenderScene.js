@@ -1,7 +1,7 @@
 const RenderScene =
 `
   <script>
-    var camera, controls, animate, heading, scene;
+    var camera, controls, animate, heading;
     var displacementX = 0;
     var displacementZ = 0;
     (function() {

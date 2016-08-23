@@ -50,17 +50,15 @@ export default function(state = initialState, action) {
     console.log(action.payload, 'place query');
       return {
         ...state,
-        places: action.payload.search,
-        placeQuery: action.payload.query,
+        places: action.payload,
         placeUpdate: true,
         searchMode: 'places'
       };
     case SEARCH_EVENTS:
-    console.log(action.payload, 'place query');
+    console.log(action.payload, 'event query');
       return {
         ...state,
-        places: action.payload.search,
-        eventQuery: action.payload.query,
+        places: action.payload,
         placeUpdate: true,
         searchMode: 'events'
       };

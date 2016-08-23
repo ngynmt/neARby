@@ -62,16 +62,13 @@ export const placeQuery = (query) => {
 
   return {
     type: SEARCH_PLACES,
-    payload: {
-      search: search,
-      query: query
-    }
+    payload: search
   };
 };
 
 export const eventQuery = (query) => {
   // post request
-  let search = fetch('https://agile-peak-45133.herokuapp.com/events', {
+    let search = fetch('https://agile-peak-45133.herokuapp.com/events', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -81,7 +78,6 @@ export const eventQuery = (query) => {
   })
   .then(function(response) {
     if (response.status === 200) {
-      console.log(response, 'RESULTS');
       return response.json();
     } else  {
       return [];
@@ -92,19 +88,17 @@ export const eventQuery = (query) => {
     return [];
   });
 
+  console.log(search);
 
   return {
     type: SEARCH_EVENTS,
-    payload: {
-      search: search,
-      query: query
-    }
+    payload: search
   };
 };
 
 export const imageQuery = (query) => {
   // post request
-  let search = fetch('https://agile-peak-45133.herokuapp.com/images', {
+  fetch('https://agile-peak-45133.herokuapp.com/images', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -151,7 +145,9 @@ export const getUserInfo = (err, data) => {
       type: SET_USER,
       payload: {
         username: data.name,
-        picture: data.picture.data.url
+        picture: data.picture.data.url,
+        id: data.id,
+        friends: data.friends.data
       }
     };
   }

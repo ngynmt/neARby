@@ -1,6 +1,8 @@
 import { PLACES_COLLECTION } from '../actions/index';
 import { SEARCH_PLACES } from '../actions/index';
 import { SEARCH_EVENTS } from '../actions/index';
+import { UPDATE_PLACE_QUERY } from '../actions/index';
+import { UPDATE_EVENT_QUERY } from '../actions/index';
 import { USER_PLACES } from '../actions/index';
 import { USER_EVENTS } from '../actions/index';
 import { RESET_PLACES_UPDATE } from '../actions/index';
@@ -78,6 +80,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         placeUpdate: false
+      };
+    case UPDATE_PLACE_QUERY:
+      return {
+        ...state,
+        placeQuery: action.payload
+      };
+    case UPDATE_PLACE_QUERY:
+      return {
+        ...state,
+        eventQuery: action.payload
       };
     default:
       return state;

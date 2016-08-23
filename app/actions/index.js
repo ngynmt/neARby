@@ -7,6 +7,8 @@ export const SEARCH_PLACES = 'SEARCH_PLACES';
 export const SEARCH_EVENTS = 'SEARCH_EVENTS';
 export const DETAIL_SELECTED = 'DETAIL_SELECTED';
 export const SEARCH_PHOTOS = 'SEARCH_PHOTOS';
+export const UPDATE_EVENT_QUERY = 'UPDATE_EVENT_QUERY';
+export const UPDATE_PLACE_QUERY = 'UPDATE_PLACE_QUERY';
 
 export const fetchPlaces = (position) => {
   let collection = fetch('https://agile-peak-45133.herokuapp.com/location', {
@@ -95,6 +97,20 @@ export const eventQuery = (query) => {
     payload: search
   };
 };
+
+export const updatePlaceQuery = (query) => {
+  return {
+    type: UPDATE_PLACE_QUERY,
+    payload: query
+  }
+}
+
+export const updateEventQuery = (query) => {
+  return {
+    type: UPDATE_EVENT_QUERY,
+    payload: query
+  }
+}
 
 export const imageQuery = (query) => {
   // post request

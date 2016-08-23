@@ -81,7 +81,6 @@ class ARcomponent extends Component {
 
         let newHeading = previousHeading + (currentHeading - previousHeading) / smoothingValue;
         this.setState({currentHeading: currentHeading});
-       
         callback(newHeading);
       }
     );

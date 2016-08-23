@@ -25,8 +25,6 @@ class PlacePanel extends Component {
   render() {
     return (
       <View>
-
-
         <Text style={styles.subheading}>{this.props.detail.name}</Text>
         <Text style={styles.subheading}>{this.props.detail.address}</Text>
 
@@ -40,7 +38,6 @@ class PlacePanel extends Component {
             }
           </View>
         </ScrollView>
-        
         <View>
           {this.props.directions.map(function(item, key) {
             return (

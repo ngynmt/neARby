@@ -188,8 +188,7 @@ export const getUserInfo = (err, data) => {
       payload: {
         username: data.name,
         picture: data.picture.data.url,
-        id: data.id,
-        // friends: data.friends.data
+        id: data.id
       }
     };
   }

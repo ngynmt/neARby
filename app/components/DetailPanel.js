@@ -37,7 +37,7 @@ class PlacePanel extends Component {
               </View>
         </ScrollView>
 
-          <View style={styles.buttonContainer}>
+          <View>
             <TouchableHighlight style={styles.placeOrEventButton}>
               <Text style={styles.buttonText}>Buy Tix</Text>
             </TouchableHighlight>

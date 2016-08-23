@@ -51,7 +51,7 @@ class UserPanel extends Component {
       <MapView
         style={{flex: 2}}
         showsUserLocation={true}
-        annotations={[{latitude: 37.785834, longitude: -122.406417, title: 'DOLORES PAWTY', subtitle: 'dawgs only'}]}
+        annotations={[{latitude: 37.785834, longitude: -122.406417, title: 'DOLORES PAWTY'}]}
         />
       <View style={{flex: 1, justifyContent: 'flex-end', alignItems: 'center'}}>
       <View><Text>Friends: { this.props.user.friends.length > 0 ? this.props.user.friends.map(function(friend) {

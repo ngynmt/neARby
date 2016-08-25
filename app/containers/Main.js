@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 import styles from '../styles/style';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -90,9 +91,9 @@ class Main extends Component {
         type="overlay"
         side="right"
         ref={(ref) => {this._drawer = ref;}}
-        content={<View style={styles.panel}><TouchableHighlight onPress={() => {this._drawer.close()}}>
+        content={<View style={styles.panel}><View style={{ width: 30, alignItems: 'center' }}><TouchableOpacity onPress={() => {this._drawer.close()}}>
       <Text style={styles.exit}>x</Text>
-      </TouchableHighlight>{drawerItems}</View>}
+      </TouchableOpacity></View>{drawerItems}</View>}
         panOpenMask={0.5}
         panCloseMask={0.1}
         tweenHandler={(ratio) => ({main: { opacity:(3 - ratio) / 3 }})}>

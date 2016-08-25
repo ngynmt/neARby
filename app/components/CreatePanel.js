@@ -55,6 +55,7 @@ class CreatePanel extends Component {
       lon: this.props.threeLon,
       distance: this.props.distance,
       username: this.props.username,
+      userid: this.props.user.id,
       type: 'userPlace',
       upvotes: 0,
       downvotes: 0,
@@ -75,6 +76,7 @@ class CreatePanel extends Component {
       longitude: this.props.currentPosition.longitude,
       startTime: this.props.startTime,
       username: this.props.username,
+      userid: this.props.id,
       lat: this.props.threeLat,
       lon: this.props.threeLon,
       distance: this.props.distance,
@@ -207,6 +209,7 @@ const sendSpotToServer = (type, obj) => {
 
 const mapStateToProps = function(state) {
   return {
+    id: state.user.id,
     username: state.user.username,
     initialPosition: state.Geolocation.initialPosition,
     currentPosition: state.Geolocation.currentPosition,

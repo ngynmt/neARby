@@ -3,6 +3,7 @@ import {
   StyleSheet,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   Image,
   Text,
   DeviceEventEmitter //DeviceEventEmitter is imported for geolocation update
@@ -318,26 +319,26 @@ class ARcomponent extends Component {
   renderButtons() {
     return (
       <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
-        <TouchableHighlight style={styles.menu} onPress={this.props.pressSearch}>
+        <TouchableOpacity style={styles.menu} onPress={this.props.pressSearch}>
           <View style={styles.button}>
             <Image style={styles.search} source={require('../assets/search.png')}/>
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.menu} onPress={this.props.pressList}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menu} onPress={this.props.pressList}>
           <View style={styles.button}>
             <Image style={styles.search} source={require('../assets/link.png')}/>
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.menu} onPress={this.props.pressCreate}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menu} onPress={this.props.pressCreate}>
           <View style={styles.button}>
             <Image style={styles.objectButton} source={require('../assets/place.png')}/>
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.menu} onPress={this.props.pressProfile}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menu} onPress={this.props.pressProfile}>
           <View style={styles.button}>
             <Image style={styles.userimg} source={{uri: this.props.user.picture}}/>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }

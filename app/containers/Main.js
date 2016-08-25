@@ -100,10 +100,10 @@ class Main extends Component {
         panCloseMask={0.1}
         tweenHandler={(ratio) => ({main: { opacity:(3 - ratio) / 3 }})}>
         <ARview
-          pressProfile={() => {this.props.action.drawerState('User'); this._drawer.open();}}
-          pressSearch={() => {this.props.action.drawerState('Search'); this._drawer.open();}}
-          pressList={() => {this.props.action.drawerState('List'); this._drawer.open();}}
-          pressCreate={() => {this.props.action.drawerState('Create'); this._drawer.open();}}
+            pressProfile={() => {this.props.action.drawerState('User'); this._drawer.open();}}
+            pressSearch={() => {this.props.action.drawerState('Search'); this._drawer.open();}}
+            pressList={() => {this.props.action.drawerState('List'); this._drawer.open();}}
+            pressCreate={() => {this.props.action.drawerState('Create'); this._drawer.open();}}
         />
         {this.renderPreview()}
       </Drawer>
